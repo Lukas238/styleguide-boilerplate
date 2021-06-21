@@ -1,0 +1,43 @@
+/*
+Button
+
+Your standard button suitable for clicking.
+
+## Testing makrdown1
+### Testing makrdown2
+#### Testing makrdown3
+
+1. Testing makrdown
+1. Testing makrdown
+1. Testing makrdown
+
+.primary  - Indicates button is the primary action.
+.smaller  - A little bit smaller now.
+:hover    - Highlights when hovering.
+:disabled - Dims the button when disabled.
+
+Markup:
+<button class="button {{modifier_class}}">Button</button>
+<a href="#" class="button {{modifier_class}}">Link Button</a>
+<button class="button {{modifier_class}}">Button Element</button>
+<input type="button" class="button {{modifier_class}}" value="input[type='button']"/>
+
+Styleguide CTAs
+*/
+.button {
+  @extend .btn;
+
+}
+.button.primary {
+  @extend .btn-primary;
+}
+.button.smaller {
+  @extend .btn-xs;
+}
+.button:hover {
+  @extend .active;
+}
+.button:disabled {
+ @extend .disabled;
+
+}

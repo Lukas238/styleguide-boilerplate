@@ -1,0 +1,21 @@
+body{
+    @include breakpoint ($lg){
+       @include container-fixed(50px);
+    }
+}
+#wrapper{
+    max-width: 1400px;
+    margin: 0 auto;
+    
+    #header,
+    #content,
+    #footer{
+        
+        @include make-row(0);
+        > .wrap {
+            @include make-sm-column(10);
+            @include make-sm-column-offset(1);
+        }
+    }
+
+} 

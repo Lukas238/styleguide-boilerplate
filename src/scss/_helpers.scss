@@ -1,0 +1,5 @@
+br[class*="visible-xs-"]{
+    @include breakpoint(( max:  735px )){
+        display: none !important;
+    }
+}

@@ -1,0 +1,18 @@
+/*
+Panel
+
+While not always necessary, sometimes you need to put your DOM in a box. For those situations, try the panel component.
+
+.panel - By default, all the .panel does is apply some basic border and padding to contain some content.
+
+
+
+Markup: m-panel.html
+
+Styleguide Modules - Panel
+*/
+
+.m-panel{
+  @extend .panel;
+
+}

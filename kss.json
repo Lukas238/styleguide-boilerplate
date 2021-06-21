@@ -1,13 +1,11 @@
 {
-  "//": "The source and destination paths are relative to this file.",
-  "title": "My Live Style guide",
+  "title": "My Live Style Guide",
   "source": [
     "src/scss/"
   ],
-  "//": "The css and js paths are URLs relative to the generated style guide.",
   "css": [
     "css/styles.css"
   ],
   "destination":  "dist/",
-  "homepage": "src/homepage.md"
+  "homepage": "src/homepage.md",
 }

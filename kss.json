@@ -7,5 +7,5 @@
     "css/styles.css"
   ],
   "destination":  "dist/",
-  "homepage": "src/homepage.md",
+  "homepage": "src/homepage.md"
 }

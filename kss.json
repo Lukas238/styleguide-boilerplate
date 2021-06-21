@@ -1,7 +1,10 @@
 {
   "title": "My Live Style Guide",
+  "custom": "TOC",
+  "nav-depth": 5,
   "source": [
-    "src/scss/"
+    "src/scss/",
+    "src/components/"
   ],
   "css": [
     "css/styles.css"

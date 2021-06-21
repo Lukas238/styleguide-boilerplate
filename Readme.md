@@ -61,12 +61,12 @@ To do so, edit the file `kss.json` and add the line `"builder": "custom-builder"
 The templates is build upon handlebars.js.
 
 
-## KSS extra documentation
+## Extra Documentation
 
 
 - https://github.com/kss-node/kss-node/wiki
 - https://github.com/kss-node/kss-node/wiki/Quick-Start-Guide
 - [Knyle Style Sheets] syntax spect.
-
+- ITCC - https://www.creativebloq.com/web-design/manage-large-css-projects-itcss-101517528
 
 [Knyle Style Sheets]: https://github.com/kss-node/kss/blob/spec/SPEC.md

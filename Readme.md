@@ -22,9 +22,9 @@ This boilerplate generate a static HTML living Styleguide website from [Knyle St
 
 ## Source Files
 
-All SCSS source files are to be included in `src/cscc/` folder.
+All .css source files are to be included under `src/scss/` folder.
 
-Each scss file must also inclue a documentation block in `KSS syntax` to be parserd into the styleguide.
+Each scss file must also inclue a documentation block in [KSS syntax] to be parserd into the styleguide.
 Here's an example KSS comment:
 ```scss
 /*
@@ -126,3 +126,4 @@ The templates is build upon handlebars.js.
 - [Using custom builder](https://github.com/kss-node/kss-node/wiki/Using-custom-templates)
 
 [Knyle Style Sheets]: https://github.com/kss-node/kss/blob/spec/SPEC.md
+[KSS syntax]: https://github.com/kss-node/kss/blob/spec/SPEC.md

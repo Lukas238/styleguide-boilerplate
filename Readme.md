@@ -1,6 +1,6 @@
-# Living Style Guide boilerplate
+# Styleguide Boilerplate
 
-This boilerplate can generate an static HTML living Style Guide website from kss documented SCSS files.
+This boilerplate generate a static HTML living Styleguide website from [Knyle Style Sheets] comments on .scss files.
 
 ## Installation
 
@@ -23,7 +23,7 @@ This boilerplate can generate an static HTML living Style Guide website from kss
 
 All SCSS source files are to be included in `src/cscc/` folder.
 
-Each scss file must also inclue a documentation block in `KSS syntax` to be parserd into the style guide.
+Each scss file must also inclue a documentation block in `KSS syntax` to be parserd into the styleguide.
 Here's an example KSS comment:
 ```scss
 /*
@@ -36,7 +36,7 @@ Your standard button suitable for clicking.
 
 Markup: button.html
 
-Style guide: components.button
+Styleguide: components.button
 */
 .button {
 /* … */
@@ -51,7 +51,7 @@ Each KSS documentation block consists of two required parts and a few optional p
 - A description of what the style does or looks like (optional)
 - The name of file containing the HTML markup the CSS applies to, or a copy of the markup inline (optional)
 - A list of modifier classes or pseudo-classes and how they modify the style (optional)
-- A reference to the style's position in the style guide (required). Ex.: `Style guide: Section - Sub Section`
+- A reference to the style's position in the styleguide (required). Ex.: `Styleguide: Section - Sub Section`
 - A numerical weight that can be used to re-position a style outside of the normal alphabetical order (optional). Ex.: `Weight: -1`
 
 See [Knyle Style Sheets] for more information in the KSS syntaxt spects.
@@ -96,16 +96,16 @@ Weight: -1
 
 ```
 
-## Compiling the Style Guide
+## Compiling the Styleguide
 
-To compile the style guide just run `gulp build`.
+To compile the styleguide just run `gulp build`.
 
-The resulting static style guide files will be compiled into the `./dist` folder.
+The resulting static styleguide files will be compiled into the `./dist` folder.
 
-Alternatively, you can compile the style guide and open a live webserver, with auto refresh, for developing, by runing: `gulp`.
+Alternatively, you can compile the styleguide and open a live webserver, with auto refresh, for developing, by runing: `gulp`.
 
 
-## Custom Style Guide template
+## Custom Styleguide template
 
 This boilerplate already includes a default page template. 
 

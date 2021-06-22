@@ -2,9 +2,24 @@
 
 This boilerplate can generate an static HTML living Style Guide website from kss documented SCSS files.
 
-## How to
+## Installation
 
-## Source files
+1. Open a terminal window on the root folder of the repo.
+2. Run `npm install` to install dev dependencies.
+
+## Use
+
+### Developing
+
+1. Open a terminal window on the root folder of the repo.
+2. Run `gulp` to compile the styleguide in the `./dev` folder and start a live webserver.
+
+### Build
+1. Open a terminal window on the root folder of the repo.
+2. Run `gulp build` to compile the styleguide in the `./dist` folder.
+
+
+## Source Files
 
 All SCSS source files are to be included in `src/cscc/` folder.
 
@@ -41,7 +56,7 @@ Each KSS documentation block consists of two required parts and a few optional p
 
 See [Knyle Style Sheets] for more information in the KSS syntaxt spects.
 
-## About TOC menu
+## Custom TOC menu
 
 By default the table of content menu is auto generated alphabetically based on each component KSS comment.
 
@@ -80,8 +95,6 @@ Weight: -1
 */
 
 ```
-
-
 
 ## Compiling the Style Guide
 

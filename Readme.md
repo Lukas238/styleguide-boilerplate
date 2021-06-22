@@ -2,6 +2,7 @@
 
 This boilerplate generate a static HTML living Styleguide website from [Knyle Style Sheets] comments on .scss files.
 
+**Demo**: https://lukas238.github.io/styleguide-boilerplate/
 ## Installation
 
 1. Open a terminal window on the root folder of the repo.

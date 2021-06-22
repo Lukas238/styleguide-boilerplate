@@ -1,12 +1,13 @@
 {
-  "name": "live_styleguide",
+  "name": "styleguide-boilerplate",
   "version": "1.0.0",
   "description": "",
+  "engines" : { "node" : ">=12.10.0" },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Lucas Dasso <Lucas.Dasso@wundermanthompson.com>",
+  "author": "Lucas Dasso <dasso.lucas@c238.com.ar>",
   "license": "ISC",
   "devDependencies": {
     "bootstrap-sass": "^3.4.1",

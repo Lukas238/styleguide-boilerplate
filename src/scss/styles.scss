@@ -30,5 +30,7 @@
 // # CONTENT
 @import 'content';
 
-// # COMPONENTS
-@import 'components/**/*.scss';
+// # COMPONENTS - Atoms, Molecules, and Organisms
+@import 'components/**/_a-*';
+@import 'components/**/_m-*';
+@import 'components/**/_o-*';

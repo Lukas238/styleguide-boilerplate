@@ -1,15 +1,13 @@
 var gulp = require('gulp'),
   { src, dest, series, parallel } = require('gulp'),
+  clean = require('gulp-rimraf'),
   sass = require('gulp-sass'),
   sassGlob = require('gulp-sass-glob'),
-  // cssnano = require("gulp-cssnano");
-  // (sourcemaps = require("gulp-sourcemaps")),
   log = require('fancy-log'),
   plumber = require('gulp-plumber'),
+  browserSync = require('browser-sync').create(),
   kss = require('kss'),
-  kssOptions = require('./kss.json'),
-  server = require('gulp-server-livereload'),
-  livereload = require('gulp-livereload');
+  kssOptions = require('./kss.json');
 
 var cfg = {
   src: './src',
@@ -21,16 +19,26 @@ var onError = function (error) {
   this.emit('end');
 };
 
+
+// CLEAN Working Folder
+function clean_dist(done) {
+  return src(cfg.dist + '/*', {
+    read: false
+  }).pipe(clean());
+}
+
 function scss() {
   return (
     gulp
-      .src(cfg.src + '/scss/**/*.scss')
+      .src([
+        cfg.src + '/scss/**/*.scss',
+        '!'+cfg.src + '/scss/kss_custom_toc.scss'
+      ])
       .pipe(
         plumber({
           errorHandler: onError,
         })
       )
-      // .pipe(sourcemaps.init())
       .pipe(sassGlob())
       .pipe(
         sass({
@@ -38,39 +46,33 @@ function scss() {
           errLogToConsole: true,
         })
       )
-      // .pipe(
-      //   cssnano({
-      //     autoprefixer: {
-      //       browsers: ["last 2 versions", "ie >= 8", "ios 8"],
-      //       add: true,
-      //     }
-      //   })
-      // )
-      // .pipe(sourcemaps.write("./"))
       .pipe(dest(cfg.dist + '/css'))
-      .pipe(livereload())
+      .pipe(browserSync.stream())
   );
 }
-function styleguide() {
+const styleguide = function(){
   return kss(kssOptions);
-}
-styleguide.description = 'Build the style guide with KSS';
+};
 
-function serve() {
-  return gulp.src(cfg.dist).pipe(
-    server({
-      livereload: true,
-      directoryListing: false,
-      open: true,
-    })
-  );
+// Static server
+const serve = function(cb) {
+  browserSync.init({
+      server: {
+          baseDir: cfg.dist
+      }
+  });
+  cb();
+};
+
+function browsersyncReload(cb){
+  browserSync.reload();
+  cb();
 }
 
 function watch() {
-  // livereload.listen();
-  gulp.watch([cfg.src + '/scss/**/*.scss', cfg.src + '/components/**/*.html'], series(scss, styleguide));
+  gulp.watch([cfg.src + '/scss/**/*.scss', cfg.src + '/components/**/*.html'], series(scss, styleguide, browsersyncReload));
 }
 
 // DEFAULT
-exports.default = series(scss, styleguide, serve, watch);
-exports.build = series(scss, styleguide);
+exports.default = series(clean_dist, scss, styleguide, serve, watch);
+exports.build = series(clean_dist, scss, styleguide);

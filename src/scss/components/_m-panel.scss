@@ -3,16 +3,73 @@ Panel
 
 While not always necessary, sometimes you need to put your DOM in a box. For those situations, try the panel component.
 
-.panel - By default, all the .panel does is apply some basic border and padding to contain some content.
+.m-panel - By default, all the panel does is apply some basic border and padding to contain some content.
 
 
 
 Markup: m-panel.html
 
-Styleguide Modules - Panel
+Styleguide Molecules - Panel
+*/
+
+
+
+/*
+Panel with heading
+
+Easily add a heading container to your panel with `.panel-heading`. You may also include any &lt;h1&gt;-&lt;h6&gt; with a .panel-title class to add a pre-styled heading. However, the font sizes of &lt;h1&gt;-&lt;h6&gt; are overridden by `.panel-heading`.
+
+For proper link coloring, be sure to place links in headings within `.panel-title`.
+
+.m-panel-default - By default, all the panel does is apply some basic border and padding to contain some content.
+
+
+
+Markup:
+<div class="m-panel panel-default">
+  <div class="panel-heading">Panel heading without title</div>
+  <div class="panel-body">
+    Panel content
+  </div>
+</div>
+<div class="m-panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Panel title</h3>
+  </div>
+  <div class="panel-body">
+    Panel content
+  </div>
+</div>
+
+Styleguide Molecules - Panel - With Heading
+*/
+
+
+
+/*
+Contextual alternatives
+
+Like other components, easily make a panel more meaningful to a particular context by adding any of the contextual state classes.
+
+.panel-success - Success
+.panel-info - Info
+.panel-warning - Warning
+.panel-danger - Danger
+
+
+Markup:
+<div class="m-panel {{modifier_class}}"> <div class="panel-heading"> <h3 class="panel-title">Panel title</h3> </div> <div class="panel-body"> Panel content </div> </div>
+
+Styleguide Molecules - Panel - Contextual alternatives
+
+Weight: 2
 */
 
 .m-panel{
   @extend .panel;
+  @extend .panel-default;
 
 }
+
+
+

@@ -14,14 +14,14 @@ Markup:
 <button class="a-button {{modifier_class}}">Button Element</button>
 <input type="button" class="a-button {{modifier_class}}" value="input[type='button']"/>
 
-Styleguide Atoms - Button;
+Styleguide: Atoms - Button
 */
 .a-button {
   @extend .btn;
 
 }
 .a-button.primary {
-  @extend .btn-primary;
+  @extend .btn-primary !optional;
 }
 .a-button.smaller {
   @extend .btn-xs;

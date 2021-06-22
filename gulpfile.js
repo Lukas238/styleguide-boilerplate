@@ -11,8 +11,11 @@ var gulp = require('gulp'),
 
 var cfg = {
   src: './src',
+  dev: './dev',
   dist: './dist',
 };
+
+cfg.wf = cfg.dev;
 
 var onError = function (error) {
   log.error(error.message);
@@ -20,13 +23,21 @@ var onError = function (error) {
 };
 
 
-// CLEAN Working Folder
-function clean_dist(done) {
-  return src(cfg.dist + '/*', {
+function set_wf_dev(done) {
+  cfg.wf = cfg.dev;
+  done();
+}
+
+function set_wf_dist(done) {
+  cfg.wf = cfg.dist;
+  done();
+}
+
+function clean_wf(done) {
+  return src(cfg.wf + '/*', {
     read: false
   }).pipe(clean());
 }
-
 function scss() {
   return (
     gulp
@@ -46,11 +57,12 @@ function scss() {
           errLogToConsole: true,
         })
       )
-      .pipe(dest(cfg.dist + '/css'))
+      .pipe(dest(cfg.wf + '/css'))
       .pipe(browserSync.stream())
   );
 }
 const styleguide = function(){
+  kssOptions.destination = cfg.wf;
   return kss(kssOptions);
 };
 
@@ -74,5 +86,5 @@ function watch() {
 }
 
 // DEFAULT
-exports.default = series(clean_dist, scss, styleguide, serve, watch);
-exports.build = series(clean_dist, scss, styleguide);
+exports.default = series(set_wf_dev, clean_wf, scss, styleguide, serve, watch);
+exports.build = series(set_wf_dist, clean_wf, scss, styleguide);

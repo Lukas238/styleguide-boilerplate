@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Lucas Dasso <Lucas.Dasso@wundermanthompson.com>",
   "license": "ISC",
   "devDependencies": {
     "bootstrap-sass": "^3.4.1",

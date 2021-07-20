@@ -1,0 +1,25 @@
+.kss-style {
+
+    .kss-header {
+      &:before {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 80px;
+        background-image: url(http://placehold.it/160x160&text=Logo);
+        background-size: 100%;
+        background-repeat: no-repeat;
+        border-radius: 1em;
+        margin: -1em auto 1em auto;
+      }
+      .kss-doc-title {
+        text-align: center;
+      }
+    }
+    // &.kss-source {
+    //   display: none;
+    //   &:hover {
+    //     display: block;
+    //   }
+    // }
+  }

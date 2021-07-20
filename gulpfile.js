@@ -15,13 +15,12 @@ var cfg = {
   dist: './dist',
 };
 
-cfg.wf = cfg.dev;
+cfg.wf = cfg.dev; // Sets the default working folder
 
 var onError = function (error) {
   log.error(error.message);
   this.emit('end');
 };
-
 
 function set_wf_dev(done) {
   cfg.wf = cfg.dev;
@@ -35,54 +34,56 @@ function set_wf_dist(done) {
 
 function clean_wf(done) {
   return src(cfg.wf + '/*', {
-    read: false
+    read: false,
   }).pipe(clean());
 }
-function scss() {
-  return (
-    gulp
-      .src([
-        cfg.src + '/scss/**/*.scss',
-        '!'+cfg.src + '/scss/kss_custom_toc.scss'
-      ])
-      .pipe(
-        plumber({
-          errorHandler: onError,
-        })
-      )
-      .pipe(sassGlob())
-      .pipe(
-        sass({
-          includePaths: ['./node_modules/bootstrap-sass/assets/stylesheets'],
-          errLogToConsole: true,
-        })
-      )
-      .pipe(dest(cfg.wf + '/css'))
-      .pipe(browserSync.stream())
-  );
+
+function images() {
+  return src(cfg.src + '/img/*').pipe(dest(cfg.wf + '/img'));
 }
-const styleguide = function(){
+
+function scss() {
+  return gulp
+    .src([cfg.src + '/scss/**/*.scss', '!' + cfg.src + '/scss/kss_custom_toc.scss'])
+    .pipe(
+      plumber({
+        errorHandler: onError,
+      })
+    )
+    .pipe(sassGlob())
+    .pipe(
+      sass({
+        includePaths: [
+          './node_modules/bootstrap-sass/assets/stylesheets' // remove if bootstrap is not used
+        ],
+        errLogToConsole: true,
+      })
+    )
+    .pipe(dest(cfg.wf + '/css'))
+    .pipe(browserSync.stream());
+}
+const styleguide = series(images, function () {
   kssOptions.destination = cfg.wf;
   return kss(kssOptions);
-};
+});
 
 // Static server
-const serve = function(cb) {
+const serve = function (cb) {
   browserSync.init({
-      server: {
-          baseDir: cfg.dist
-      }
+    server: {
+      baseDir: cfg.wf,
+    },
   });
   cb();
 };
 
-function browsersyncReload(cb){
+function browsersyncReload(cb) {
   browserSync.reload();
   cb();
 }
 
 function watch() {
-  gulp.watch([cfg.src + '/scss/**/*.scss', cfg.src + '/components/**/*.html'], series(scss, styleguide, browsersyncReload));
+  gulp.watch([cfg.src + '/scss/**/*.scss', cfg.src + '/components/**/*.html', cfg.src + '/homepage.md'], series(scss, styleguide, browsersyncReload));
 }
 
 // DEFAULT

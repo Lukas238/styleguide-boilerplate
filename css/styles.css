@@ -1147,6 +1147,20 @@ a.label:hover, a.label:focus {
   .label-danger[href]:hover, .label-danger[href]:focus {
     background-color: #c9302c; }
 
+.kss-style .kss-header:before {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 80px;
+  background-image: url(http://placehold.it/160x160&text=Logo);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  border-radius: 1em;
+  margin: -1em auto 1em auto; }
+
+.kss-style .kss-header .kss-doc-title {
+  text-align: center; }
+
 @media screen and (min-width: 1200px) {
   body {
     padding-right: 25px;

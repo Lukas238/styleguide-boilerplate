@@ -1152,7 +1152,7 @@ a.label:hover, a.label:focus {
   display: block;
   width: 80px;
   height: 80px;
-  background-image: url(http://placehold.it/160x160&text=Logo);
+  background-image: url(https://via.placeholder.com/160x160&text=Logo);
   background-size: 100%;
   background-repeat: no-repeat;
   border-radius: 1em;
